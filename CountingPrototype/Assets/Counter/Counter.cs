@@ -6,18 +6,26 @@ using UnityEngine.UI;
 
 public class Counter : MonoBehaviour
 {
-    public Text CounterText;
+    public Text counterText;
+    GameManager gameManager;
 
-    private int Count = 0;
+    private int lives = 3;
 
     private void Start()
     {
-        Count = 0;
+        lives = 3;
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Count += 1;
-        CounterText.text = "Count : " + Count;
+        Destroy(other.gameObject);
+        lives -= 1;
+        counterText.text = "Lives : " + lives;
+        if (lives <=0)
+        {
+           gameManager.IsGameOver();
+        }
     }
 }

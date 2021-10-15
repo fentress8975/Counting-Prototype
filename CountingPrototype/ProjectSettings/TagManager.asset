@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bumper
   - Obstacle
+  - Ball
   layers:
   - Default
   - TransparentFX
